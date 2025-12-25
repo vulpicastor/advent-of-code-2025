@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-# ruff: noqa: F401
-import collections
-import functools
-import io
-import itertools
-import operator as op
-import re
-import timeit
-
 import numpy as np
 import aocd
 
@@ -44,11 +35,8 @@ def count_zero_passes(steps):
             prev_zero = False
         else:
             zeros += abs(quotient)
-        print(n, state, quotient, modulus, zeros)
         state = modulus
     return zeros
-    # print(steps)
-    # print(np.divmod(np.cumsum(steps), 100))
 
 
 def main():
@@ -69,7 +57,7 @@ L82
     steps = parse_input(inlist)
     answer = count_zeros(steps)
     print(answer)
-    # aocd.submit(answer, part='a', day=DAY, year=YEAR)
+    aocd.submit(answer, part='a', day=DAY, year=YEAR)
 
     answer = count_zero_passes(steps)
     print(answer)
