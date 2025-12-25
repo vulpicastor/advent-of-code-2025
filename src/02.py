@@ -1,15 +1,7 @@
 #!/usr/bin/env python3
 
-# ruff: noqa: F401
-import collections
-import functools
-import io
-import itertools
-import operator as op
 import re
-import timeit
 
-import numpy as np
 import aocd
 
 YEAR = 2025
@@ -37,7 +29,6 @@ def invalid2(x):
 
 def check_range(a, b, invalid_method=invalid):
     l = [i for i in range(a, b + 1) if invalid_method(i)]
-    print(l)
     return l
 
 
@@ -50,7 +41,7 @@ def main():
 
     answer = sum(sum(check_range(*x)) for x in inlist)
     print(answer)
-    # aocd.submit(answer, part='a', day=DAY, year=YEAR)
+    aocd.submit(answer, part='a', day=DAY, year=YEAR)
 
     answer = sum(sum(check_range(*x, invalid_method=invalid2)) for x in inlist)
     print(answer)
